@@ -1,6 +1,8 @@
 # Préparation
 cd TestEntretien
+
 brew install imagemagick && brew install graphicsmagick<br>
+
 npm install
 
 
