@@ -6,7 +6,7 @@ brew install imagemagick && brew install graphicsmagick<br>
 npm install
 
 
-# Modifier le fichier .env
+# Création de fichier .env
 MAIL_HOST=smtp.mailtrap.io
 
 MAILTRAP_USERNAME=YOUR_USERNAME
