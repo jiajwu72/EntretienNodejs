@@ -16,5 +16,6 @@ MAILTRAP_PASSWORD=YOUR_PASSWORD
 # Lancement APP
 npm start
 
+(écouter sur le port 3000)
 
 `
