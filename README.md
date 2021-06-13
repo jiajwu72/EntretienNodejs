@@ -1,5 +1,5 @@
 # Préparation
-cd TestEntretien
+Veuillez vous rendre dans le dossier de racine.
 
 brew install imagemagick && brew install graphicsmagick<br>
 
