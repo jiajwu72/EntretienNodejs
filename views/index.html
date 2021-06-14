@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  </head>
+  <body>
+    <form action="/SendMail" enctype="multipart/form-data" method="post">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+
+            <div class="">
+              <label for="EmailInput" class="form-label">Email address</label>
+              <input required name="email" type="email" class="form-control" id="EmailInput" placeholder="name@example.com">
+            </div>
+            <div class="">
+              <label for="NomInput" class="form-label">Nom</label>
+              <input required name="lastname" type="text" class="form-control" id="NomInput" placeholder="Nom">
+            </div>
+            <div class="">
+              <label for="PrenomInput" class="form-label">Prénom</label>
+              <input required name="firstname" type="text" class="form-control" id="PrenomInput" placeholder="Prenom">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-check">
+              <input name="domain" class="form-check-input" type="checkbox" value="DevBack" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Développeur back
+              </label>
+            </div>
+            <div class="form-check">
+              <input name="domain" class="form-check-input" type="checkbox" value="DevFront" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Développeur front
+              </label>
+            </div>
+            <div class="form-check">
+              <input name="domain" class="form-check-input" type="checkbox" value="DevOps" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                DevOps
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:20px">
+          <div class="form-floating">
+            <textarea class="form-control"
+                      name="infos"
+                      placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 100px">
+            </textarea>
+            <label for="floatingTextarea2">Informations complémentaires</label>
+          </div>
+        </div><br>
+        <input type="file" name="img" > <br>
+        <button type="submit" class="btn btn-primary" style="margin-top:20px">Soumettre</button>
+      </div>
+      <!-- <div style="float:right;font-weight:bold;margin-right:20px;" >
+        <label class="form-check-label">
+          Sigature:
+        </label><br>
+        <img src="https://www.jquery-ffaz.com/html/images/banana.jpg" width="120" >
+      </div> -->
+
+
+    </form>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+  </body>
+</html>
