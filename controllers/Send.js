@@ -51,7 +51,6 @@ class SendController {
 
     if (req.file!=null)
       content.filePath = req.file.filename;
-    //console.log(content);
     const directoryPath=process.env.PWD + "/uploads";
 
     const pdfDoc = await PDFDocument.create();
@@ -147,10 +146,8 @@ class SendController {
     page.drawText(content.infos, { x: CurrentX, y: CurrentY, size: fontsizeLittle })
 
     CurrentY -= espLittleY;
-    //console.log("content.filePath:",content.filePath);
     var hasFile = content.filePath != null;
     if (hasFile){
-      //console.log("hasFile0");
       const st = content.filePath.split('.');
       const ext = st[st.length-1];
       var filePath = process.env.PWD + "/uploads/" +content.filePath;
@@ -202,7 +199,6 @@ class SendController {
 
     }
     else {
-      //console.log("!hasFile");
       sendIt(content.email,hasFile);
       res.status(200).send('Un PDF a été envoyé, Veuillez vérifier votre boite email');
     }
