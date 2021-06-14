@@ -16,10 +16,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 var path = require('path');
-//app.use(express.static('/uploads'));
-//app.use("/uploads", express.static(path.join(__dirname, 'public')));
-//app.set('view engine', 'html');
-//app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
