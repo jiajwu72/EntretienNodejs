@@ -1,7 +1,7 @@
 const { PDFDocument,rgb } = require('pdf-lib');
 const nodemailer=require('nodemailer');
 const fs = require('fs');
-const sendIt=(email)=>{
+const sendIt=(email,hasFile)=>{
   var smtpTrans = nodemailer.createTransport({
                    host: process.env.MAIL_HOST,
                    auth: {
@@ -15,12 +15,15 @@ const sendIt=(email)=>{
                   from: 'myemail@mailtrap.com',
                   subject: 'Test',
                   text: 'Envoi formulaire pdf aplatit',
-                  attachments: [
-                    {
+                  attachments: []
+                };
+                if (hasFile){
+                  const attach ={
                     filename: 'test.pdf',
                     path: process.env.PWD+'/test.pdf',
-                  }]
-                };
+                  };
+                  mailOptions.attachments[0] = attach;
+                }
 
                 try {
                   smtpTrans.sendMail(mailOptions, function(err,info) {
@@ -48,7 +51,7 @@ class SendController {
 
     if (req.file!=null)
       content.filePath = req.file.filename;
-
+    //console.log(content);
     const directoryPath=process.env.PWD + "/uploads";
 
     const pdfDoc = await PDFDocument.create();
@@ -144,8 +147,10 @@ class SendController {
     page.drawText(content.infos, { x: CurrentX, y: CurrentY, size: fontsizeLittle })
 
     CurrentY -= espLittleY;
-
-    if (content.filePath != null){
+    //console.log("content.filePath:",content.filePath);
+    var hasFile = content.filePath != null;
+    if (hasFile){
+      //console.log("hasFile0");
       const st = content.filePath.split('.');
       const ext = st[st.length-1];
       var filePath = process.env.PWD + "/uploads/" +content.filePath;
@@ -186,7 +191,8 @@ class SendController {
               console.log(err);
             }else{
               console.log("success");
-              sendIt(content.email);
+
+              sendIt(content.email,hasFile);
             }
           });
         }
@@ -195,7 +201,11 @@ class SendController {
       res.status(200).send('Un PDF a été envoyé, Veuillez vérifier votre boite email');
 
     }
-
+    else {
+      //console.log("!hasFile");
+      sendIt(content.email,hasFile);
+      res.status(200).send('Un PDF a été envoyé, Veuillez vérifier votre boite email');
+    }
 
 
   }
