@@ -1,11 +1,8 @@
 # Préparation
-
-brew install imagemagick && brew install graphicsmagick<br>
-
 npm install
 
 
-# Création de fichier .env
+# Création/Modification de fichier .env(à la racine de projet)
 MAIL_HOST=smtp.mailtrap.io
 
 MAILTRAP_USERNAME=YOUR_USERNAME
@@ -14,6 +11,8 @@ MAILTRAP_PASSWORD=YOUR_PASSWORD
 
 
 # Lancement APP
+cd EntretienNodejs
+
 npm start
 
 localhost:3000/
