@@ -15,12 +15,16 @@ const sendIt=(email,hasFile)=>{
                   from: 'myemail@mailtrap.com',
                   subject: 'Test',
                   text: 'Envoi formulaire pdf aplatit',
-                  attachments: [{
-                    filename: 'test.pdf',
-                    path: process.env.PWD+'/test.pdf',
-                  }]
+                  attachments: []
                 };
                 
+                if (hasFile){
+                  const attach = {
+                    filename: 'test.pdf',
+                    path: process.env.PWD+'/test.pdf',
+                  };
+                  mailOptions.attachments[0] = attach; 
+                }
                   //mailOptions.attachments[0] = attach; 
                 }
                 try {
