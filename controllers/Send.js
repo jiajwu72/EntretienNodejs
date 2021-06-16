@@ -15,16 +15,14 @@ const sendIt=(email,hasFile)=>{
                   from: 'myemail@mailtrap.com',
                   subject: 'Test',
                   text: 'Envoi formulaire pdf aplatit',
-                  attachments: []
-                };
-                if (hasFile){
-                  const attach ={
+                  attachments: [{
                     filename: 'test.pdf',
                     path: process.env.PWD+'/test.pdf',
-                  };
-                  mailOptions.attachments[0] = attach;
+                  }]
+                };
+                
+                  //mailOptions.attachments[0] = attach; 
                 }
-
                 try {
                   smtpTrans.sendMail(mailOptions, function(err,info) {
                     if(err) console.log("err:",err)
